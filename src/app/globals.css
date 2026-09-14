@@ -1,38 +1,69 @@
 @import "tailwindcss";
 
+/*
+ * Ink navy with one signal colour. The amber is the accent — links, the
+ * moments worth noticing. Green and red are not accents: they mean settled
+ * and rejected, the way they do on a payment, and appear only where a status
+ * is being shown.
+ */
+@theme {
+  --color-ink: #080d1a;
+  --color-deep: #0c1324;
+  --color-panel: #101a30;
+  --color-line: #1c2842;
+  --color-line-strong: #2b3b5e;
+
+  --color-text: #eef2f9;
+  --color-soft: #c6cfe0;
+  --color-muted: #9ba8c2;
+  --color-faint: #66738f;
+
+  --color-signal: #f3b45b;
+  --color-signal-strong: #ffc978;
+  --color-settle: #5ad69c;
+  --color-reject: #f27d7d;
+
+  --font-display: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-plex-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, "Cascadia Mono", Consolas, monospace;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color-scheme: dark;
 }
 
 html {
   scroll-behavior: smooth;
+  /* Anchored sections land below the fixed navigation, not under it. */
+  scroll-padding-top: 5.5rem;
+  background: var(--color-ink);
 }
 
 body {
-  background: #09090b;
+  background: var(--color-ink);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-html {
-  scroll-behavior: smooth;
+h1, h2, h3 {
+  font-family: var(--font-display);
+  text-wrap: balance;
+  letter-spacing: -0.02em;
+}
+
+::selection {
+  background: rgb(243 180 91 / 0.3);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-signal);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
 }

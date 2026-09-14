@@ -1,26 +1,32 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import About from "@/components/About";
-import Skills from "@/components/Skills";
-import Projects from "@/components/Projects";
 import Experience from "@/components/Experience";
+import Projects from "@/components/Projects";
+import Bankflow from "@/components/Bankflow";
+import Skills from "@/components/Skills";
+import Learning from "@/components/Learning";
 import Contact from "@/components/Contact";
-import Stats from "@/components/Stats";
+import Footer from "@/components/Footer";
 
+/*
+ * Ordered by what someone reading a portfolio looks for: who this is and how
+ * to reach them, where they have worked, what they built there, then the
+ * side project, skills, what they are learning, and contact.
+ */
 export default function Home() {
   return (
-    <main className="bg-zinc-950 text-white min-h-screen">
-  <Navbar />
-
-  <div className="max-w-7xl mx-auto px-6 space-y-32 pb-32">
-    <Hero />
-    <Stats />
-    <About />
-    <Skills />
-    <Projects />
-    <Experience />
-    <Contact />
-  </div>
-</main>
+    <>
+      <Navbar />
+      <main id="main">
+        <Hero />
+        <Experience />
+        <Projects />
+        <Bankflow />
+        <Skills />
+        <Learning />
+        <Contact />
+      </main>
+      <Footer />
+    </>
   );
 }

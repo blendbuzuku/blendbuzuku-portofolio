@@ -1,22 +1,25 @@
 import { portfolio } from "@/data/portfolio";
+import SectionHeading from "./SectionHeading";
 
 export default function Skills() {
   return (
-    <section className="py-32">
-      <h2 className="text-4xl font-bold mb-10">
-        Skills
-      </h2>
+    <section id="skills" className="mx-auto max-w-5xl px-6 py-16 md:py-20">
+      <SectionHeading eyebrow="Skills" title="What I work with" />
 
-      <div className="flex flex-wrap gap-4">
-        {portfolio.skills.map((skill) => (
-          <div
-            key={skill}
-            className="px-5 py-3 rounded-full border border-zinc-700"
-          >
-            {skill}
+      <dl className="divide-y divide-line rounded-2xl border border-line bg-deep/60">
+        {portfolio.skills.map((group) => (
+          <div key={group.group} className="grid gap-2 px-6 py-4 md:grid-cols-[200px_1fr] md:items-center">
+            <dt className="text-sm font-medium text-muted">{group.group}</dt>
+            <dd className="flex flex-wrap gap-2">
+              {group.items.map((item) => (
+                <span key={item} className="rounded-md border border-line px-2.5 py-1 text-sm text-soft">
+                  {item}
+                </span>
+              ))}
+            </dd>
           </div>
         ))}
-      </div>
+      </dl>
     </section>
   );
 }

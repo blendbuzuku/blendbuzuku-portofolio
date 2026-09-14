@@ -1,51 +1,29 @@
 import { projects } from "@/data/projects";
+import SectionHeading from "./SectionHeading";
 
 export default function Projects() {
   return (
-    <section className="py-32">
-      <h2 className="text-4xl font-bold mb-12">
-        Featured Projects
-      </h2>
+    <section id="projects" className="mx-auto max-w-5xl px-6 py-16 md:py-20">
+      <SectionHeading
+        eyebrow="Projects"
+        title="What I've built at work"
+        intro="Built across different teams and domains — from monitoring and messaging services to desktop tools and analytics."
+      />
 
-      <div className="grid md:grid-cols-2 gap-6">
+      <div className="grid gap-4 md:grid-cols-2">
         {projects.map((project) => (
-          <div
-            key={project.title}
-            className="
-              border
-              border-zinc-800
-              bg-zinc-900
-              rounded-2xl
-              p-6
-              hover:border-blue-500
-              transition
-            "
-          >
-            <h3 className="text-2xl font-semibold mb-4">
-              {project.title}
-            </h3>
-
-            <p className="text-zinc-400 mb-6">
-              {project.description}
-            </p>
-
-            <div className="flex flex-wrap gap-2">
+          <article key={project.title} className="flex flex-col rounded-2xl border border-line bg-deep/60 p-6">
+            <h3 className="text-lg font-semibold text-text">{project.title}</h3>
+            <p className="mt-0.5 text-sm text-muted">{project.company}</p>
+            <p className="mt-3 flex-1 text-[15px] leading-relaxed text-soft">{project.description}</p>
+            <ul className="mt-5 flex flex-wrap gap-1.5">
               {project.tech.map((item) => (
-                <span
-                  key={item}
-                  className="
-                    text-sm
-                    px-3
-                    py-1
-                    rounded-full
-                    bg-zinc-800
-                  "
-                >
+                <li key={item} className="rounded-md bg-panel px-2 py-0.5 font-mono text-xs text-muted">
                   {item}
-                </span>
+                </li>
               ))}
-            </div>
-          </div>
+            </ul>
+          </article>
         ))}
       </div>
     </section>
