@@ -8,8 +8,7 @@ import BankflowScreens from "./BankflowScreens";
  * The side project, shown properly: what it is, the screens, and how it works
  * underneath — placed after the work experience so it supports the story rather
  * than leading it. Its title links to the running app when
- * NEXT_PUBLIC_BANKFLOW_URL is set, otherwise to the source when that is set,
- * and is plain when neither is — never a link to nothing.
+ * NEXT_PUBLIC_BANKFLOW_URL is set, otherwise to the source code.
  */
 export default function Bankflow() {
   const url = BANKFLOW_LIVE_URL ?? BANKFLOW_SOURCE_URL;
@@ -40,32 +39,28 @@ export default function Bankflow() {
             <p className="mt-3 text-[17px] leading-relaxed text-soft">{bankflow.description}</p>
           </div>
 
-          {(BANKFLOW_LIVE_URL || BANKFLOW_SOURCE_URL) && (
-            <div className="flex flex-wrap gap-3">
-              {BANKFLOW_LIVE_URL && (
-                <a
-                  href={BANKFLOW_LIVE_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-lg bg-signal px-5 py-2.5 text-sm font-semibold text-ink transition-colors hover:bg-signal-strong"
-                >
-                  Open live demo
-                  <ArrowUpRight size={16} />
-                </a>
-              )}
-              {BANKFLOW_SOURCE_URL && (
-                <a
-                  href={BANKFLOW_SOURCE_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-lg border border-line-strong px-5 py-2.5 text-sm font-medium text-text transition-colors hover:border-soft"
-                >
-                  <GitHubIcon size={16} />
-                  Source
-                </a>
-              )}
-            </div>
-          )}
+          <div className="flex flex-wrap gap-3">
+            {BANKFLOW_LIVE_URL && (
+              <a
+                href={BANKFLOW_LIVE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-lg bg-signal px-5 py-2.5 text-sm font-semibold text-ink transition-colors hover:bg-signal-strong"
+              >
+                Open live demo
+                <ArrowUpRight size={16} />
+              </a>
+            )}
+            <a
+              href={BANKFLOW_SOURCE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-lg border border-line-strong px-5 py-2.5 text-sm font-medium text-text transition-colors hover:border-soft"
+            >
+              <GitHubIcon size={16} />
+              View source
+            </a>
+          </div>
         </div>
 
         <ul className="mt-5 flex flex-wrap gap-1.5">

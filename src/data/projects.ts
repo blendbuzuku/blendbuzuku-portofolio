@@ -3,12 +3,12 @@
  * .env.example.
  *
  * NEXT_PUBLIC_BANKFLOW_URL is the running app: the project's title and its
- * "Open live demo" button point there. NEXT_PUBLIC_BANKFLOW_SOURCE_URL is the
- * code, shown only when set — the repository is private, and a link that
- * gives a visitor GitHub's 404 is worse than no link at all.
+ * "Open live demo" button point there. The source button links to the public
+ * repository; NEXT_PUBLIC_BANKFLOW_SOURCE_URL overrides it if the code moves.
  */
 export const BANKFLOW_LIVE_URL = process.env.NEXT_PUBLIC_BANKFLOW_URL?.trim() || null;
-export const BANKFLOW_SOURCE_URL = process.env.NEXT_PUBLIC_BANKFLOW_SOURCE_URL?.trim() || null;
+export const BANKFLOW_SOURCE_URL =
+  process.env.NEXT_PUBLIC_BANKFLOW_SOURCE_URL?.trim() || "https://github.com/blendbuzuku/bankflow";
 
 export const bankflow = {
   title: "BankFlow",
